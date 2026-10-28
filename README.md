@@ -1,2 +1,31 @@
-# voxel-ray-lab
-Interactive 3D comparison of DDA, Ray Casting, and Hybrid search algorithms.
+# Voxel Lab
+
+DDA, Ray Casting, Hybrid의 탐색 원리를 같은 3D 공간에서 비교하는 교육용 웹입니다.
+
+배포 주소: https://bingga8627.github.io/voxel-ray-lab/
+
+## 사용
+
+브라우저에서 배포 주소를 열거나 index.html을 직접 실행하세요. 외부 라이브러리와 빌드 과정이 필요하지 않습니다.
+
+- 3D 회전·확대와 세 시점 동기화
+- 단계별 재생, 광선 각도·격자 크기·샘플 간격 조절
+- 원리 설명과 의사코드, 검사 횟수·거리 오차 비교
+- 실제 브라우저 성능 측정과 CSV 저장
+- 발표 모드
+
+## 알고리즘
+
+- DDA: 격자 경계를 따라 이동하고 격자-구 겹침을 판정합니다.
+- Ray Casting: 고정 간격으로 점-구 내부 검사를 반복합니다.
+- Hybrid: DDA로 첫 후보 셀까지 이동한 뒤 셀 근처에서 정밀 샘플링합니다.
+
+제공된 연구 보고서 및 발표자료 12–21쪽의 구형 목표물 실험을 재구성했습니다. Hybrid의 제한된 국소 탐색 범위에서 생길 수 있는 미탐도 표시합니다. 실제 교점과 탐지가 모두 있는 광선의 오차와 오탐·미탐을 별도로 집계합니다. 브라우저의 JavaScript 실측값은 보고서의 Python 측정값과 다릅니다.
+
+## 검증
+
+Node.js가 있다면 `node check.cjs`로 계산 로직 477건 및 경계 조건을 검증할 수 있습니다.
+
+## 배포
+
+GitHub Pages: main 브랜치의 /(root)에서 배포합니다. HTML, CSS, JavaScript를 수정하고 커밋하면 자동 반영됩니다.
